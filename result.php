@@ -1,0 +1,3 @@
+<?php require_once __DIR__ . '/config.php'; $result=$_SESSION['last_score']??null; unset($_SESSION['last_score']); $pageTitle='Quiz result'; include __DIR__ . '/partials/header.php'; ?>
+<section class="panel narrow"><h1>Quiz submitted</h1><?php if($result): ?><p>Your score is <strong><?= (int)$result['score'] ?> / <?= (int)$result['total'] ?></strong>.</p><p><?= $result['total'] ? (int)round($result['score']/$result['total']*100) : 0 ?>%</p><?php else: ?><p>Your quiz has been submitted. If you refreshed this page, your result may already have been displayed.</p><?php endif; ?><a class="btn btn-primary" href="<?= e(base_path()) ?>/student.php">Back to student home</a></section>
+<?php include __DIR__ . '/partials/footer.php'; ?>
